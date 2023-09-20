@@ -1,0 +1,36 @@
+server:
+  port: 8080
+#rocketmq配置信息
+rocketmq:
+  #nameservice服务器地址（多个以英文逗号隔开）
+  name-server: 192.168.3.130:9876
+  #生产者配置
+  producer:
+    #组名
+    group: test-producer-group
+    # 发送消息失败重试次数，默认2
+    retryTimesWhenSendFailed: 2
+    # 异步消息重试此处，默认2
+    retryTimesWhenSendAsyncFailed: 2
+    # 消息最大长度，默认1024 * 1024 * 4(默认4M)
+    maxMessageSize: 4096
+    # 压缩消息阈值，默认4k(1024 * 4)
+    compressMessageBodyThreshold: 4096
+    # 是否在内部发送失败时重试另一个broker，默认false
+    retryNextServer: false
+
+knife4j:
+  enable: true
+  openapi:
+    title: rocketmq的测试demo
+    description: rocketmq的测试demo
+    email: 1271899086@qq.com
+    concat: 小麦
+    version: v4.0
+    license: Apache 2.0
+    group:
+      system:
+        group-name: 系统接口
+        api-rule: package
+        api-rule-resources:
+          - com.springboot.rest
